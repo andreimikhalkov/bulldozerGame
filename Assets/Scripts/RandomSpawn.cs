@@ -24,10 +24,12 @@ public class RandomSpawn : MonoBehaviour
 
     private void SpawnRandomObjects()
     {
-        for(int i =0; i > prefabCount; i++)
+        for(int i =0; i < prefabCount; i++)
         {
-            int randomIndex = Random.Range(0, _spawnPoints.Length);
-            Instantiate(_trashPrefabs[randomIndex]);
+            int randomPositionIndex = Random.Range(0, _spawnPoints.Length);
+            Vector3 randomPosition = _spawnPoints[randomPositionIndex];
+            int randomIndex = Random.Range(0, _trashPrefabs.Length);
+            Instantiate(_trashPrefabs[randomIndex], randomPosition, Quaternion.identity);
 
         }
     }
